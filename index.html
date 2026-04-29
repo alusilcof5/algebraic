@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expresiones Algebraicas</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">Álgebra · 3.° Ciclo</span>
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="showSection('teoria')">Teoría</button>
+    <button class="nav-tab" onclick="showSection('ejercicios')">Ejercicios</button>
+  </div>
+  <span class="prog-pill" id="nav-prog">0 / 20</span>
+</nav>
+
+<div class="shell">
+
+  <!-- ══ TEORÍA ══════════════════════════════════════════════════════════ -->
+  <section id="teoria" class="active">
+
+    <div class="hero-eyebrow">Módulo 1 · Conceptos base</div>
+    <h1 class="hero-title">Expresiones<br><em>algebraicas</em></h1>
+    <p class="hero-desc">Una expresión algebraica mezcla números y letras con operaciones. Antes de resolver ejercicios, hay que saber leer cada pieza.</p>
+
+    <!-- ANATOMÍA VISUAL -->
+    <div class="anatomy-card">
+      <div class="anatomy-label">Identificá cada parte de esta expresión</div>
+      <div class="anatomy-expr">
+        <span style="color:var(--c1)">3</span><span style="color:var(--c2)">x</span><sup style="color:var(--c3);font-size:55%">2</sup>
+        <span style="color:var(--c4)"> − </span>
+        <span style="color:var(--c1)">5</span><span style="color:var(--c2)">x</span>
+        <span style="color:var(--c4)"> + </span>
+        <span style="color:var(--c5)">7</span>
+      </div>
+      <div class="parts-grid">
+        <div class="part-chip pc-coef">
+          <span class="symbol">3</span>
+          <span class="pname">Coeficiente</span>
+          <span class="pdesc">El número que multiplica a la variable</span>
+        </div>
+        <div class="part-chip pc-var">
+          <span class="symbol">x</span>
+          <span class="pname">Variable</span>
+          <span class="pdesc">Letra que puede tomar cualquier valor</span>
+        </div>
+        <div class="part-chip pc-exp">
+          <span class="symbol">2</span>
+          <span class="pname">Exponente</span>
+          <span class="pdesc">Cuántas veces se multiplica la base</span>
+        </div>
+        <div class="part-chip pc-op">
+          <span class="symbol">− +</span>
+          <span class="pname">Operadores</span>
+          <span class="pdesc">Unen o separan los términos</span>
+        </div>
+        <div class="part-chip pc-const">
+          <span class="symbol">7</span>
+          <span class="pname">Término indep.</span>
+          <span class="pdesc">Número sin variable</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONCEPTOS CLAVE (colapsibles) -->
+    <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--ink3);margin-bottom:1rem">Conceptos clave</div>
+    <div class="concept-list">
+
+      <div class="concept-item">
+        <button class="concept-toggle" onclick="toggleConcept(this)">
+          <div class="c-num">1</div>
+          <div>
+            <div class="c-title">Términos y grado</div>
+            <div class="c-subtitle">¿Qué es un término? ¿Cómo se mide el grado?</div>
+          </div>
+          <span class="c-arrow">▾</span>
+        </button>
+        <div class="concept-body">
+          <p>Cada <strong>término</strong> es un bloque separado por + o −. El <strong>grado</strong> de un término es el exponente de su variable. El <strong>grado del polinomio</strong> es el mayor de todos.</p>
+          <div class="mono-box">
+            5x⁴  →  grado 4<br>
+            −3x²  →  grado 2<br>
+            x  →  grado 1<br>
+            −8  →  grado 0 (término independiente)
+          </div>
+          <div class="alert-tip">El <strong>grado del polinomio</strong> 5x⁴ − 3x² + x − 8 es <strong>4</strong>, porque es el exponente más grande.</div>
+        </div>
+      </div>
+
+      <div class="concept-item">
+        <button class="concept-toggle" onclick="toggleConcept(this)">
+          <div class="c-num">2</div>
+          <div>
+            <div class="c-title">Términos semejantes</div>
+            <div class="c-subtitle">La regla más importante para simplificar</div>
+          </div>
+          <span class="c-arrow">▾</span>
+        </button>
+        <div class="concept-body">
+          <p>Dos términos son <strong>semejantes</strong> cuando tienen la misma variable con el mismo exponente. Solo ellos pueden sumarse o restarse.</p>
+          <div class="step-list">
+            <div class="step-item">
+              <div class="step-dot">✓</div>
+              <div class="step-text"><strong>3x²</strong> y <strong>−7x²</strong> → semejantes (ambos tienen x²)</div>
+            </div>
+            <div class="step-item">
+              <div class="step-dot">✗</div>
+              <div class="step-text"><strong>4x²</strong> y <strong>4x</strong> → NO semejantes (diferente exponente)</div>
+            </div>
+            <div class="step-item">
+              <div class="step-dot">✗</div>
+              <div class="step-text"><strong>2x</strong> y <strong>2y</strong> → NO semejantes (diferente variable)</div>
+            </div>
+          </div>
+          <div class="mono-box">
+            4x² + 3x − x² + 2x<br>
+            = (4x² − x²) + (3x + 2x)<br>
+            = 3x² + 5x
+          </div>
+          <div class="alert-tip">Cuando combinás semejantes, <strong>solo operás los coeficientes</strong>. La parte de la variable queda igual.</div>
+        </div>
+      </div>
+
+      <div class="concept-item">
+        <button class="concept-toggle" onclick="toggleConcept(this)">
+          <div class="c-num">3</div>
+          <div>
+            <div class="c-title">Evaluar una expresión</div>
+            <div class="c-subtitle">Reemplazá la variable por un número</div>
+          </div>
+          <span class="c-arrow">▾</span>
+        </button>
+        <div class="concept-body">
+          <p>Evaluar significa sustituir la variable por un valor concreto y calcular.</p>
+          <div class="step-list">
+            <div class="step-item"><div class="step-dot">1</div><div class="step-text">Reemplazá x por el número dado</div></div>
+            <div class="step-item"><div class="step-dot">2</div><div class="step-text">Calculá las potencias primero</div></div>
+            <div class="step-item"><div class="step-dot">3</div><div class="step-text">Multiplicaciones y divisiones</div></div>
+            <div class="step-item"><div class="step-dot">4</div><div class="step-text">Sumas y restas al final</div></div>
+          </div>
+          <div class="mono-box">
+            P(x) = 2x² − 3x + 1 &nbsp;para x = 4<br>
+            = 2(4)² − 3(4) + 1<br>
+            = 2·16 − 12 + 1<br>
+            = 32 − 12 + 1<br>
+            = 21
+          </div>
+        </div>
+      </div>
+
+      <div class="concept-item">
+        <button class="concept-toggle" onclick="toggleConcept(this)">
+          <div class="c-num">4</div>
+          <div>
+            <div class="c-title">Operaciones y factorización</div>
+            <div class="c-subtitle">Suma, producto, factor común, fórmulas notables</div>
+          </div>
+          <span class="c-arrow">▾</span>
+        </button>
+        <div class="concept-body">
+          <p><strong>Suma:</strong> combiná solo semejantes.</p>
+          <div class="mono-box">(3x²+2x−1) + (x²−5x+4) = 4x² − 3x + 3</div>
+
+          <p style="margin-top:.8rem"><strong>Producto (distributiva):</strong> cada término del primero multiplica a todos los del segundo.</p>
+          <div class="mono-box">(x+2)(x−3) = x²−3x+2x−6 = x²−x−6</div>
+
+          <p style="margin-top:.8rem"><strong>Factor común:</strong> sacá el factor que está en todos los términos.</p>
+          <div class="mono-box">6x² + 4x = 2x(3x + 2)</div>
+
+          <p style="margin-top:.8rem"><strong>Diferencia de cuadrados:</strong></p>
+          <div class="mono-box">a² − b² = (a+b)(a−b)<br>x² − 9 = (x+3)(x−3)</div>
+
+          <p style="margin-top:.8rem"><strong>Trinomio cuadrado perfecto:</strong></p>
+          <div class="mono-box">a² + 2ab + b² = (a+b)²<br>x² + 6x + 9 = (x+3)²</div>
+        </div>
+      </div>
+
+    </div><!-- /concept-list -->
+
+    <button class="cta-btn" onclick="showSection('ejercicios')">
+      Ir a los 20 ejercicios
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+  </section>
+
+  <!-- ══ EJERCICIOS ═════════════════════════════════════════════════════ -->
+  <section id="ejercicios">
+
+    <div class="ex-header">
+      <h2>20 Ejercicios</h2>
+      <span class="ex-counter" id="ex-counter">0 completados</span>
+    </div>
+    <div class="prog-bar"><div class="prog-fill" id="prog-fill"></div></div>
+    <p style="font-size:.875rem;color:var(--ink2);margin-bottom:1.5rem">Escribí tu respuesta y presioná <strong>Verificar</strong>. La solución completa aparece después de cada intento.</p>
+
+    <div class="ex-list" id="ex-list"></div>
+
+    <div class="finish-banner" id="finish-banner">
+      <h3>¡Completaste todos los ejercicios! 🎉</h3>
+      <p>Revisá los que tuviste incorrectos y volvé a repasar la teoría si necesitás.</p>
+    </div>
+
+  </section>
+
+</div><!-- /shell -->
+
+<script src="./main.js"></script>
+</body>
+</html>
